@@ -52,9 +52,39 @@ public class CategoryTest {
 	 * }
 	 */
 
-	@Test
-	public void showList() {
-		assertEquals("Getting list from category list", 2, categoryDao.list().size());
+/*	@Test
+	public void categoryAdd() {
+		category = new Category();
+		category.setName("Test");
+		category.setDescription("Test description");
+		category.setImageUrl("cat_2");
+		category.setActive(true);
+
+		assertEquals("Adding a product", true, categoryDao.add(category));
 	}
 
+	@Test
+	public void showList() {
+		assertEquals("Getting list from category list", 3, categoryDao.list().size());
+	}*/
+
+/*	@Test
+	public void getSingleCategory() {
+		category = categoryDao.get(2);
+		assertEquals("Fetching single data", "Laptop", category.getName());
+	}
+*/
+/*	@Test
+	public void updateCategory() {
+		category=categoryDao.get(2);
+		category.setImageUrl("Test.jpg");
+		assertEquals("Update a category", true, categoryDao.update(category));
+	}*/
+
+/*	@Test
+	public void deleteCategory() {
+		category=categoryDao.get(2);
+		assertEquals("Deleting the category", true, categoryDao.delete(category));
+	}
+*/
 }

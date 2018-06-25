@@ -38,6 +38,11 @@ footer {
 	padding-bottom: 60px;
 }
 
+.dataTableImg{
+	width:100px;
+	height:100px;
+}
+
 /* .adminDataTablesImg {
 	height: 50px;
 	width: 50px;

@@ -18,34 +18,33 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	@Autowired
 	private CategoryDao categoryDao;
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	public Session session() {
-		return sessionFactory.getCurrentSession(); 
+		return sessionFactory.getCurrentSession();
 	}
-	
+
 	@Override
 	public List<Category> list() {
-		List<Category> list=new ArrayList<Category>();
-		list = session().createQuery("From Category").getResultList();
+		List<Category> list = new ArrayList<Category>();
+		list = session().createQuery("From Category", Category.class).getResultList();
 		return list;
 	}
 
 	@Override
-	public Category get(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Category get(int id) {
+		return session().get(Category.class, Integer.valueOf(id));
 	}
 
 	@Override
 	public boolean add(Category category) {
 		try {
 			session().persist(category);
-			//sessionFactory.getCurrentSession().persist(category);
+			// sessionFactory.getCurrentSession().persist(category);
 			return true;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.getMessage();
 		}
 		return false;
@@ -53,14 +52,15 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	@Override
 	public boolean update(Category category) {
-		// TODO Auto-generated method stub
-		return false;
+		session().update(category);
+		return true;
 	}
 
 	@Override
 	public boolean delete(Category category) {
-		// TODO Auto-generated method stub
-		return false;
+		category.setActive(false);
+		session().delete(category);
+		return true;
 	}
 
 }

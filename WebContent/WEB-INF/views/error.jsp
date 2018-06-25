@@ -5,10 +5,6 @@
 
 <c:set value="${pageContext.request.contextPath}" var="contextRoot" />
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
-<spring:url var="fonts" value="/resources/fonts" />
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,47 +19,27 @@
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 <!-- Custom css for body page -->
 <link href="${css}/shop-item.css" rel="stylesheet">
-<script>
-	/* declare all global variable for js */
-	window.menu = "${title}";
-	window.contextRoot="${contextRoot}";
-</script>
 </head>
 <body>
 	<!-- Body content wrapper -->
 	<div class="wrapper">
 		<!-- Navigation Bar -->
-		<%@include file="./shared/navbar.jsp"%>
-
+		<!-- Navigation -->
 		<!-- Page Content -->
 		<!-- Page content wrapper -->
 		<div class="content">
-			<c:if test="${userClickHome ==true}">
-				<%@include file="home.jsp"%>
-			</c:if>
-
-			<c:if test="${userClickAbout ==true}">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<c:if test="${userClickContact ==true}">
-				<%@include file="contact.jsp"%>
-			</c:if>
-			
-			
-			<c:if test="${userClickSingleProduct ==true}">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
-
-			<c:if test="${userClickManageProduct ==true}">
-				<%@include file="manageProduct.jsp"%>
-			</c:if>
-
-			<c:if test="${userClickAllProduct ==true or userClickSingleCategory == true}">
-				<%@include file="product.jsp"%>
-			</c:if>
-			
-			
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="jumbotron">
+							<h1>${errorTitle}</h1>
+							<hr />
+							<blockquote>${errorDescription}</blockquote>
+							<a href="${contextRoot}/home" class="btn btn-primary">Back to Home</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<%@include file="./shared/footer.jsp"%>
 	</div>

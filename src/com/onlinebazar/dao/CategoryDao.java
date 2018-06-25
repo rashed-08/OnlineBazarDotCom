@@ -8,7 +8,7 @@ public interface CategoryDao {
 
 	List<Category> list();
 
-	Category get(String id);
+	Category get(int id);
 
 	boolean add(Category category);
 
